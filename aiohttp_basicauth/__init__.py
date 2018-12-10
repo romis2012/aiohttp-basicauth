@@ -21,7 +21,7 @@ class BasicAuthMiddleware(object):
             return None
         try:
             auth = BasicAuth.decode(auth_header=auth_header)
-        except ValueError:
+        except ValueError:  # pragma: no cover
             auth = None
         return auth
 
@@ -31,9 +31,13 @@ class BasicAuthMiddleware(object):
                 and await self.check_credentials(auth.login, auth.password))
 
     async def check_credentials(self, username, password):
-        if self.username and self.password:
-            return username == self.username and password == self.password
-        return False
+        if username is None:
+            raise ValueError('username is None')  # pragma: no cover
+
+        if password is None:
+            raise ValueError('password is None')  # pragma: no cover
+
+        return username == self.username and password == self.password
 
     def challenge(self):
         return web.Response(

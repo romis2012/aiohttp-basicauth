@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 import functools
 from aiohttp import BasicAuth, web, hdrs
 from aiohttp.web import middleware
 
-__version__ = '0.1.2'
+__version__ = '0.1.3'
 
 
 @middleware
@@ -49,16 +48,14 @@ class BasicAuthMiddleware(object):
             }
         )
 
-    async def check_auth(self, request, handler):
-        if await self.authenticate(request):
-            return await handler(request)
-        else:
-            return self.challenge()
-
     def required(self, handler):
         @functools.wraps(handler)
-        async def wrapper(request):
-            return await self.check_auth(request, handler)
+        async def wrapper(*args):
+            request = args[-1]
+            if await self.authenticate(request):
+                return await handler(*args)
+            else:
+                return self.challenge()
 
         return wrapper
 
@@ -66,4 +63,7 @@ class BasicAuthMiddleware(object):
         if not self.force:
             return await handler(request)
         else:
-            return await self.check_auth(request, handler)
+            if await self.authenticate(request):
+                return await handler(request)
+            else:
+                return self.challenge()

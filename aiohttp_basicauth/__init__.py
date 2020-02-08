@@ -27,7 +27,8 @@ class BasicAuthMiddleware(object):
     async def authenticate(self, request):
         auth = self.parse_auth_header(request)
         return (auth is not None
-                and await self.check_credentials(auth.login, auth.password, request))
+                and await self.check_credentials(auth.login, auth.password,
+                                                 request))
 
     async def check_credentials(self, username, password, request):
         if username is None:

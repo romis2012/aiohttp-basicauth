@@ -27,9 +27,9 @@ class BasicAuthMiddleware(object):
     async def authenticate(self, request):
         auth = self.parse_auth_header(request)
         return (auth is not None
-                and await self.check_credentials(auth.login, auth.password))
+                and await self.check_credentials(auth.login, auth.password, request))
 
-    async def check_credentials(self, username, password):
+    async def check_credentials(self, username, password, request):
         if username is None:
             raise ValueError('username is None')  # pragma: no cover
 
@@ -40,6 +40,7 @@ class BasicAuthMiddleware(object):
 
     def challenge(self):
         return web.Response(
+
             body=b'', status=401, reason='UNAUTHORIZED',
             headers={
                 hdrs.WWW_AUTHENTICATE: 'Basic realm="%s"' % self.realm,

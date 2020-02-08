@@ -64,7 +64,7 @@ from aiohttp_basicauth import BasicAuthMiddleware
 
 
 class CustomBasicAuth(BasicAuthMiddleware):
-    async def check_credentials(self, username, password):
+    async def check_credentials(self, username, password, request):
         return username == 'user' and password == 'password'
 
 

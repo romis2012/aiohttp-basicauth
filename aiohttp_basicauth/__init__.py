@@ -40,7 +40,6 @@ class BasicAuthMiddleware(object):
 
     def challenge(self):
         return web.Response(
-
             body=b'', status=401, reason='UNAUTHORIZED',
             headers={
                 hdrs.WWW_AUTHENTICATE: 'Basic realm="%s"' % self.realm,

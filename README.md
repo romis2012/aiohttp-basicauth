@@ -1,6 +1,6 @@
 ## aiohttp-basicauth
 
-[![Build Status](https://travis-ci.org/romis2012/aiohttp-basicauth.svg?branch=master)](https://travis-ci.org/romis2012/aiohttp-basicauth)
+[![Build Status](https://api.travis-ci.com/romis2012/aiohttp-basicauth.svg?branch=master)](https://travis-ci.com/github/romis2012/aiohttp-basicauth)
 [![Coverage Status](https://coveralls.io/repos/github/romis2012/aiohttp-basicauth/badge.svg?branch=master)](https://coveralls.io/github/romis2012/aiohttp-basicauth?branch=master)
 [![PyPI version](https://badge.fury.io/py/aiohttp-basicauth.svg?_=a)](https://badge.fury.io/py/aiohttp-basicauth)
 

@@ -56,7 +56,7 @@ web.run_app(app, host='127.0.0.1', port=80)
 
 ## Advanced usage
 
-You can override ```check_credentials``` method to implement specific user verification logic:
+You can override ```check_credentials``` method to implement more complex user verification logic:
 
 ```python
 from aiohttp import web
@@ -65,6 +65,7 @@ from aiohttp_basicauth import BasicAuthMiddleware
 
 class CustomBasicAuth(BasicAuthMiddleware):
     async def check_credentials(self, username, password, request):
+        # here, for example, you can search user in the database by passed `username` and `password`, etc.
         return username == 'user' and password == 'password'
 
 

@@ -1,6 +1,7 @@
 flake8>=3.6.0
 pytest>=6.2.5
-pytest-asyncio>=0.17.2
+pytest-asyncio==0.16.0; python_version < "3.7"
+pytest-asyncio>=0.17.2; python_version >= "3.7"
 coverage>=5.2.1
 pytest-cov>=3.0.0
 coveralls>=3.3.0

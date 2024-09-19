@@ -8,7 +8,7 @@ HTTP basic authentication middleware for aiohttp 3.0+.
 Inspired by [Flask-BasicAuth](https://github.com/jpvanhal/flask-basicauth).
 
 ## Requirements
-- Python >= 3.5.3
+- Python >= 3.7
 - aiohttp >= 3.0
 
 ## Installation

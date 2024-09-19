@@ -1,7 +1,7 @@
 ## aiohttp-basicauth
 
-[![Build Status](https://api.travis-ci.com/romis2012/aiohttp-basicauth.svg?branch=master)](https://travis-ci.com/github/romis2012/aiohttp-basicauth)
-[![Coverage Status](https://coveralls.io/repos/github/romis2012/aiohttp-basicauth/badge.svg?branch=master)](https://coveralls.io/github/romis2012/aiohttp-basicauth?branch=master)
+[![CI](https://github.com/romis2012/aiohttp-basicauth/actions/workflows/ci.yml/badge.svg)](https://github.com/romis2012/aiohttp-basicauth/actions/workflows/ci.yml)
+[![Coverage Status](https://codecov.io/gh/romis2012/aiohttp-basicauth/branch/master/graph/badge.svg)](https://codecov.io/gh/romis2012/aiohttp-basicauth)
 [![PyPI version](https://badge.fury.io/py/aiohttp-basicauth.svg?_=a)](https://badge.fury.io/py/aiohttp-basicauth)
 
 HTTP basic authentication middleware for aiohttp 3.0+. 

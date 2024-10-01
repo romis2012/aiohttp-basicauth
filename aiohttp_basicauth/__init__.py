@@ -2,7 +2,7 @@ import functools
 from aiohttp import BasicAuth, web, hdrs
 from aiohttp.web import middleware
 
-__version__ = '1.0.0'
+__version__ = '1.1.0'
 
 
 @middleware
@@ -74,11 +74,19 @@ class BasicAuthMiddleware(object):
 
         return wrapper
 
+    # noinspection PyMethodMayBeStatic
+    def ignore(self, handler):
+        setattr(handler, '__basic_auth_ignore__', True)
+        return handler
+
     async def __call__(self, request, handler):
         if not self.force:
             return await handler(request)
+
+        if getattr(handler, '__basic_auth_ignore__', False):
+            return await handler(request)
+
+        if await self.authenticate(request):
+            return await handler(request)
         else:
-            if await self.authenticate(request):
-                return await handler(request)
-            else:
-                return self.challenge()
+            return self.challenge()

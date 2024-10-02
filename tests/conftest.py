@@ -33,9 +33,14 @@ def app_factory(auth_factory, loop):
         async def secret_view(request):
             return web.Response(text='Secret view')
 
+        @auth.ignore
+        async def ignored_view(request):
+            return web.Response(text='Ignored view')
+
         app = web.Application(middlewares=[auth], loop=loop)
         app.router.add_get('/', public_view)
         app.router.add_get('/secret', secret_view)
+        app.router.add_get('/ignored', ignored_view)
         return app
 
     return factory

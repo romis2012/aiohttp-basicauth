@@ -19,6 +19,14 @@ async def test_public_views_respond_200_when_auth_not_forced(aiohttp_client, app
     assert resp.status == 200
 
 
+async def test_ignored_views_respond_200_when_auth_forced(aiohttp_client, app_factory):
+    app = app_factory(auth_force=True)
+    client = await aiohttp_client(app)
+    resp = await client.get('/ignored')
+
+    assert resp.status == 200
+
+
 async def test_protected_views_respond_401_when_auth_not_forced(aiohttp_client, app_factory):
     app = app_factory(auth_force=False)
     client = await aiohttp_client(app)

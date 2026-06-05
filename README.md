@@ -3,6 +3,7 @@
 [![CI](https://github.com/romis2012/aiohttp-basicauth/actions/workflows/ci.yml/badge.svg)](https://github.com/romis2012/aiohttp-basicauth/actions/workflows/ci.yml)
 [![Coverage Status](https://codecov.io/gh/romis2012/aiohttp-basicauth/branch/master/graph/badge.svg)](https://codecov.io/gh/romis2012/aiohttp-basicauth)
 [![PyPI version](https://badge.fury.io/py/aiohttp-basicauth.svg?_=a)](https://badge.fury.io/py/aiohttp-basicauth)
+[![versions](https://img.shields.io/pypi/pyversions/aiohttp-basicauth.svg)](https://github.com/romis2012/aiohttp-basicauth)
 
 HTTP basic authentication middleware for aiohttp 3.0+. 
 Inspired by [Flask-BasicAuth](https://github.com/jpvanhal/flask-basicauth).

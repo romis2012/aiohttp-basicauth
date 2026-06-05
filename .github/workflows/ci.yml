@@ -12,11 +12,11 @@ jobs:
     runs-on: "${{ matrix.os }}"
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
         os: [ubuntu-latest]
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
         with:
@@ -34,7 +34,7 @@ jobs:
         # run: python -m pytest tests --cov=./aiohttp_basicauth --cov-report term-missing -s
         run: python -m pytest tests --cov=./aiohttp_basicauth --cov-report xml
       - name: Upload coverage
-        uses: codecov/codecov-action@v4.0.1
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: romis2012/aiohttp-basicauth

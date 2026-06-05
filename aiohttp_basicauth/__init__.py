@@ -2,7 +2,7 @@ import functools
 from aiohttp import BasicAuth, web, hdrs
 from aiohttp.web import middleware
 
-__version__ = '1.1.0'
+__version__ = '1.2.0'
 
 
 @middleware

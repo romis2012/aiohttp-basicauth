@@ -5,12 +5,12 @@
 [![PyPI version](https://badge.fury.io/py/aiohttp-basicauth.svg?_=a)](https://badge.fury.io/py/aiohttp-basicauth)
 [![versions](https://img.shields.io/pypi/pyversions/aiohttp-basicauth.svg)](https://github.com/romis2012/aiohttp-basicauth)
 
-HTTP basic authentication middleware for aiohttp 3.0+. 
+HTTP basic authentication middleware for aiohttp. 
 Inspired by [Flask-BasicAuth](https://github.com/jpvanhal/flask-basicauth).
 
 ## Requirements
-- Python >= 3.7
-- aiohttp >= 3.0
+- Python >= 3.8
+- aiohttp >= 3.10
 
 ## Installation
 ```
